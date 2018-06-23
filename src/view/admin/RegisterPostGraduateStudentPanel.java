@@ -69,16 +69,16 @@ public class RegisterPostGraduateStudentPanel extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         addressTxt = new javax.swing.JTextArea();
-        dobTxt = new javax.swing.JTextField();
         emailTxt = new javax.swing.JTextField();
         genderTxt = new javax.swing.JTextField();
         phoneNoTxt = new javax.swing.JTextField();
-        addmissionDateTxt = new javax.swing.JTextField();
         nicTxt = new javax.swing.JTextField();
         addmissionNoTxt = new javax.swing.JTextField();
         nameTxt = new javax.swing.JTextField();
         courseCombo = new javax.swing.JComboBox<>();
         facultyCombo = new javax.swing.JComboBox<>();
+        addmissionDateTxt = new com.toedter.calendar.JDateChooser();
+        dobTxt = new com.toedter.calendar.JDateChooser();
         addBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -158,9 +158,6 @@ public class RegisterPostGraduateStudentPanel extends javax.swing.JPanel {
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 260, 110));
 
-        dobTxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jPanel2.add(dobTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 200, -1));
-
         emailTxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jPanel2.add(emailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 310, -1));
 
@@ -169,14 +166,6 @@ public class RegisterPostGraduateStudentPanel extends javax.swing.JPanel {
 
         phoneNoTxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jPanel2.add(phoneNoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 190, -1));
-
-        addmissionDateTxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        addmissionDateTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addmissionDateTxtActionPerformed(evt);
-            }
-        });
-        jPanel2.add(addmissionDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 200, -1));
 
         nicTxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jPanel2.add(nicTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 200, -1));
@@ -207,6 +196,14 @@ public class RegisterPostGraduateStudentPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(facultyCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 260, -1));
+
+        addmissionDateTxt.setDateFormatString("YYYY-MM-d");
+        addmissionDateTxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jPanel2.add(addmissionDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 200, 30));
+
+        dobTxt.setDateFormatString("YYYY-MM-d");
+        dobTxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jPanel2.add(dobTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 200, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 520, 610));
 
@@ -278,17 +275,13 @@ public class RegisterPostGraduateStudentPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addmissionDateTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addmissionDateTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addmissionDateTxtActionPerformed
-
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         try {
             String addmissionNo=addmissionNoTxt.getText();
-            String addmissionDate=addmissionDateTxt.getText();
+            String addmissionDate=addmissionDateTxt.getDateFormatString();
             String name=nameTxt.getText();
             String nic=nicTxt.getText();
-            String dob=dobTxt.getText();
+            String dob=dobTxt.getDateFormatString();
             String gender=genderTxt.getText();
             String email=emailTxt.getText();
             String address=addressTxt.getText();
@@ -378,12 +371,12 @@ public class RegisterPostGraduateStudentPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
-    private javax.swing.JTextField addmissionDateTxt;
+    private com.toedter.calendar.JDateChooser addmissionDateTxt;
     private javax.swing.JTextField addmissionNoTxt;
     private javax.swing.JTextArea addressTxt;
     private javax.swing.JButton changePicBtn;
     private javax.swing.JComboBox<String> courseCombo;
-    private javax.swing.JTextField dobTxt;
+    private com.toedter.calendar.JDateChooser dobTxt;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JComboBox<String> facultyCombo;
     private javax.swing.JTextField genderTxt;
