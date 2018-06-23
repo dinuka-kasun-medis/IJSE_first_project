@@ -45,7 +45,6 @@ public class ResultsPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         subjectCodeTxt = new javax.swing.JTextField();
-        examDateTxt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         searchBydateBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -53,6 +52,7 @@ public class ResultsPanel extends javax.swing.JPanel {
         searchByExamIdBtn = new javax.swing.JButton();
         searchBySubCodeBtn = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        examDateTxt = new com.toedter.calendar.JDateChooser();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,9 +70,6 @@ public class ResultsPanel extends javax.swing.JPanel {
 
         subjectCodeTxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jPanel1.add(subjectCodeTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 240, -1));
-
-        examDateTxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jPanel1.add(examDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 240, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel9.setText("Exam Date :");
@@ -115,6 +112,10 @@ public class ResultsPanel extends javax.swing.JPanel {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, 150, 110));
 
+        examDateTxt.setDateFormatString("YYYY-MM-d\n");
+        examDateTxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jPanel1.add(examDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 240, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,7 +135,7 @@ public class ResultsPanel extends javax.swing.JPanel {
     private void searchBydateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBydateBtnActionPerformed
         try {
             ArrayList<Exam> exams = ExamController.getAllExam();
-            String examDate = examDateTxt.getText();
+            String examDate = examDateTxt.getDateFormatString();
             for (Exam exam : exams) {
                 ExameSelectorPanel exameSelectorPanel1=new ExameSelectorPanel(exam.getExamId(), exam.getExamId()+":"+exam.getSubjectCode()+":"+examDate, examDate);
                 xCelLoadPanel.add(exameSelectorPanel1);
@@ -181,7 +182,7 @@ public class ResultsPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField examDateTxt;
+    private com.toedter.calendar.JDateChooser examDateTxt;
     private javax.swing.JTextField examIdTxt;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel7;
